@@ -1,6 +1,9 @@
+from file_manager import FileManager
 from product import Product
+from product_catalogue import ProductCatalogue
 
 if __name__ == '__main__':
-    prod = Product('174948842042')
-    prod.sample_current_price()
-    print(prod.price_history)
+    catalogue = ProductCatalogue(Product('174948842042'), Product('313914351201'))
+    catalogue.sample_all_products()
+    FileManager.dump('test.pickle', catalogue)
+    print(type(FileManager.load('test.pickle')))

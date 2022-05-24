@@ -10,7 +10,18 @@ class Product:
         self.price_history = {}
 
     def sample_current_price(self):
-        self.price_history[datetime.now()] = self.scraper.product_code_to_price(self.product_code)
+        sampled_price = self.scraper.product_code_to_price(self.product_code)
+
+        # add newly sampled price to price history
+        self.price_history[datetime.now()] = sampled_price
+
+        return sampled_price
+
+    def most_recent_price(self):
+        if len(self.price_history) > 0:
+            return self.price_history[max(self.price_history, key=self.price_history.get)]
+        else:
+            return 'n/a'
 
     def __str__(self):
-        return f'Product object {self.product_code}'
+        return f'Product object {self.product_code} at £{self.most_recent_price()}'
