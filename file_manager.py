@@ -1,3 +1,4 @@
+import os
 import pickle
 
 
@@ -11,3 +12,7 @@ class FileManager:
     def load(f_path):
         with open(f_path, "rb") as f:
             return pickle.load(f)
+
+    @staticmethod
+    def remove(f_path):
+        os.remove(f_path)
