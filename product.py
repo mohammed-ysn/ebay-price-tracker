@@ -1,11 +1,13 @@
 from datetime import datetime
+import numpy as np
+
 from ebay_scraper import EBayScraper
 
 
 class Product:
     def __init__(self, prod_code):
         self.code = prod_code
-        self.name = ''
+        self.name = None
         self.update_name()
         self.price_history = {}
 
@@ -14,7 +16,7 @@ class Product:
 
         if sampled_price is not None:
             # add newly sampled price to price history
-            self.price_history[datetime.now()] = sampled_price
+            self.price_history[np.datetime64(datetime.now())] = sampled_price
         else:
             print(f'Failed to sample price for: {self.code}')
 
@@ -38,6 +40,9 @@ class Product:
 
     def get_link(self):
         return f'{EBayScraper.base_url}{self.code}'
+
+    def get_price_history(self):
+        return self.price_history
 
     def __str__(self):
         return f'{self.code} {self.get_name()} @ £{self.most_recent_price()}'
