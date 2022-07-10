@@ -1,7 +1,7 @@
 from unittest import TestCase
 import numpy as np
 
-from ebay_product import EBayProduct
+from product_data.ebay_product import EBayProduct
 from visuals.graph import plot_price
 
 
