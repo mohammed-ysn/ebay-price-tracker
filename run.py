@@ -1,6 +1,6 @@
 from ebay_product import EBayProduct
 from product_catalogue import ProductCatalogue
-from visuals.graph import graph_prices
+from visuals.graph import plot_price
 
 if __name__ == '__main__':
     catalogue = ProductCatalogue(EBayProduct('Ball Point Pen Biros', '174948842042'), EBayProduct('hello', 'fakeid'))
