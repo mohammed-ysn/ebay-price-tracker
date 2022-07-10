@@ -3,14 +3,14 @@ class ProductCatalogue:
         # dict product code -> product obj
         self.catalogue = {}
         for prod in prods:
-            self.catalogue[prod.code] = prod
+            self.catalogue[prod.id] = prod
 
     def sample_all_prods(self):
         for prod in self.catalogue.values():
-            prod.sample_current_price()
+            prod.sample_price()
 
     def sample_prod(self, prod_code):
-        self.catalogue[prod_code].sample_current_price()
+        self.catalogue[prod_code].sample_price()
 
     def remove_prod(self, prod_code):
         self.catalogue.pop(prod_code)

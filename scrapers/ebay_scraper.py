@@ -1,17 +1,19 @@
 import requests
 from bs4 import BeautifulSoup
 
+from scrapers.abs_scraper import AbsScraper
 
-class EBayScraper:
+
+class EBayScraper(AbsScraper):
     base_url = 'https://www.ebay.co.uk/itm/'
 
     @staticmethod
-    def get_product_url(prod_code):
-        return EBayScraper.base_url + prod_code
+    def gen_product_url(prod_id):
+        return EBayScraper.base_url + prod_id
 
     @staticmethod
     def product_code_to_price(prod_code):
-        product_url = EBayScraper.get_product_url(prod_code)
+        product_url = EBayScraper.gen_product_url(prod_code)
         page = requests.get(product_url)
         soup = BeautifulSoup(page.text, 'html.parser')
         price_element = soup.find('span', {'id': 'prcIsum'})
@@ -23,8 +25,8 @@ class EBayScraper:
             return None
 
     @staticmethod
-    def product_code_to_name(prod_code):
-        product_url = EBayScraper.get_product_url(prod_code)
+    def get_price(prod_id):
+        product_url = EBayScraper.gen_product_url(prod_id)
         page = requests.get(product_url)
         soup = BeautifulSoup(page.text, 'html.parser')
         prod_panel_element = soup.find('div', {'id': 'LeftSummaryPanel'})
