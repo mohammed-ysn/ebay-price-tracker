@@ -1,7 +1,7 @@
 import os
 from unittest import TestCase
 
-from file_manager import FileManager
+import file_manager
 
 
 class TestFileManager(TestCase):
@@ -14,9 +14,9 @@ class TestFileManager(TestCase):
         f_path = 'test_dump_and_load.pickle'
 
         # ACT
-        FileManager.dump(f_path, my_dict)
-        res = FileManager.load(f_path)
-        FileManager.remove(f_path)
+        file_manager.dump(f_path, my_dict)
+        res = file_manager.load(f_path)
+        file_manager.remove(f_path)
 
         # ASSERT
         self.assertDictEqual(res, my_dict)
@@ -28,7 +28,7 @@ class TestFileManager(TestCase):
         open(f_path, 'a').close()
 
         # ACT
-        FileManager.remove(f_path)
+        file_manager.remove(f_path)
 
         # ASSERT
         self.assertFalse(os.path.exists(f_path))

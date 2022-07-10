@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from abs_product import AbsProduct
+from product_data.abs_product import AbsProduct
 from scrapers.ebay_scraper import EBayScraper
 
 
