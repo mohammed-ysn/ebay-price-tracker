@@ -15,6 +15,9 @@ class ProductCatalogue:
     def remove_prod(self, prod_code):
         self.catalogue.pop(prod_code)
 
+    def get_prod(self, code):
+        return self.catalogue[code]
+
     def get_all_prods(self):
         return self.catalogue.values()
 
