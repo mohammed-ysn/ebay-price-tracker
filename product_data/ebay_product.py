@@ -15,6 +15,3 @@ class EBayProduct(AbsProduct):
             print(f'[WARNING] Failed to sample price for: {self.id}')
 
         return sampled_price
-
-    def get_link(self):
-        return EBayScraper.base_url + self.id
