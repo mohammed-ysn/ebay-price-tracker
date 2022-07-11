@@ -9,7 +9,7 @@ def plot_price(prod):
     fig, ax = plt.subplots()
 
     # convert keys to datetime array in minutes
-    timestamps = np.fromiter(prod.price_history.keys(), dtype='datetime64[m]')
+    timestamps = np.fromiter(prod.price_history.keys(), dtype='datetime64[s]')
     # convert prices to float array
     prices = np.fromiter(prod.price_history.values(), dtype='float')
     ordering = timestamps.argsort()
