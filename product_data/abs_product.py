@@ -5,6 +5,8 @@ class AbsProduct(ABC):
     def __init__(self, name, prod_id):
         self.name = name
         self.id = prod_id
+        # k: time
+        # v: price
         self.price_history = {}
 
     @abstractmethod

@@ -1,6 +1,7 @@
 class ProductCatalogue:
     def __init__(self, *prods):
-        # dict product code -> product obj
+        # k: product id
+        # v: product obj
         self.catalogue = {}
         for prod in prods:
             self.catalogue[prod.id] = prod
