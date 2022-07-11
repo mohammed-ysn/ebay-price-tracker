@@ -9,5 +9,5 @@ class AbsScraper(ABC):
 
     @staticmethod
     @abstractmethod
-    def get_price(prod_id):
+    def scrape_price(prod_id):
         pass
