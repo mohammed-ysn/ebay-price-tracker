@@ -5,7 +5,6 @@ setup(
     version="0.1",
     packages=find_packages(),
     install_requires=[],
-    entry_points={"console_scripts": ["ebay_scraper=ebay.ebay_scraper:main"]},
     author="Mohammed Yaseen",
     author_email="mohammedysn15@gmail.com",
     description="A Python module to track prices of an item on eBay using web scraping.",
