@@ -4,7 +4,7 @@ setup(
     name="ebay-price-tracker",
     version="0.1",
     packages=find_packages(),
-    install_requires=[],
+    install_requires=["requests", "bs4"],
     author="Mohammed Yaseen",
     author_email="mohammedysn15@gmail.com",
     description="A Python module to track prices of an item on eBay using web scraping.",
