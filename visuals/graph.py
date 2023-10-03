@@ -35,6 +35,8 @@ def plot_price(prod: Product) -> None:
     # Plot price step graph
     ax.step(timestamps, prices, where="post")
 
+    ax.scatter(timestamps, prices, marker="x", color="black", alpha=0.7)
+
     ax.set_xlabel("Time")
     ax.set_ylabel("Price")
 
