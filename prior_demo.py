@@ -1,8 +1,8 @@
 from datetime import datetime
 
-from product_data import file_manager
-from product_data.ebay_product import EBayProduct
-from product_data.product_catalogue import ProductCatalogue
+from product import file_manager
+from product.ebay_product import EBayProduct
+from product.product_catalogue import ProductCatalogue
 from visuals.graph import plot_price
 
 
@@ -13,10 +13,11 @@ def create_demo():
     demo_cat.catalogue["012345"].price_history[datetime(2022, 6, 15, 12, 13)] = 56.75
     demo_cat.catalogue["012345"].price_history[datetime(2022, 6, 15, 18, 23)] = 55
     demo_cat.catalogue["012345"].price_history[datetime(2022, 6, 15, 22, 6)] = 55
-    file_manager.dump("demo_catalogue.pkl", demo_cat)
-    print("Created demo_catalogue.pkl")
+    file_manager.dump("./data/demo_catalogue", demo_cat)
+    print("Created ./data/demo_catalogue")
 
 
 if __name__ == "__main__":
-    cat = file_manager.load("demo_catalogue.pkl")
+    create_demo()
+    cat = file_manager.load("./data/demo_catalogue")
     plot_price(cat.get_prod("012345"))

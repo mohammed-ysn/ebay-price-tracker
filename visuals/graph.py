@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-from product_data.abs_product import AbsProduct
+from product.abs_product import AbsProduct
 
 plt.rcParams["font.family"] = "consolas"
 

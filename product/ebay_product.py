@@ -2,7 +2,7 @@ from datetime import datetime
 from typing import Optional
 from warnings import warn
 
-from product_data.abs_product import AbsProduct
+from product.abs_product import AbsProduct
 from scrapers.ebay_scraper import EBayScraper
 
 

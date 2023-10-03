@@ -1,6 +1,6 @@
 from typing import Dict, List
 
-from product_data.abs_product import AbsProduct
+from product.abs_product import AbsProduct
 
 
 class ProductCatalogue:
