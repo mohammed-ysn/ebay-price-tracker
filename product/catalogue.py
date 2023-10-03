@@ -18,52 +18,19 @@ class ProductCatalogue:
             prod.sample_price()
 
     def sample_price(self, prod_id: str) -> None:
-        """Sample the price of a product.
-
-        Parameters
-        ----------
-        prod_id : str
-            The product ID.
-
-        """
+        """Sample the price of a product."""
         self.catalogue[prod_id].sample_price()
 
     def remove(self, prod_id: str) -> None:
-        """Remove a product from the catalogue.
-
-        Parameters
-        ----------
-        prod_id : str
-            The product ID.
-
-        """
+        """Remove a product from the catalogue."""
         self.catalogue.pop(prod_id)
 
     def get(self, prod_id: str) -> Product:
-        """Get a product from the catalogue.
-
-        Parameters
-        ----------
-        prod_id : str
-            The product ID.
-
-        Returns
-        -------
-        AbsProduct
-            The product object.
-
-        """
+        """Get a product from the catalogue."""
         return self.catalogue[prod_id]
 
     def get_all_prods(self) -> List[Product]:
-        """Get all of the products in the catalogue.
-
-        Returns
-        -------
-        List[AbsProduct]
-            A list of all of the products.
-
-        """
+        """Get all of the products in the catalogue."""
         return list(self.catalogue.values())
 
     def __str__(self):

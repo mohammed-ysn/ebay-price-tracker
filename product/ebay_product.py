@@ -8,13 +8,7 @@ from scraper.ebay_scraper import EBayScraper
 
 class EBayProduct(Product):
     def sample_price(self) -> Optional[float]:
-        """Sample the product price.
-
-        Returns
-        -------
-        Optional[float]
-            The sampled price.
-        """
+        """Sample the product price."""
         sampled_price = EBayScraper.scrape_price(self.id)
 
         if sampled_price is not None:

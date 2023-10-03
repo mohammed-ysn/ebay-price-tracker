@@ -7,16 +7,6 @@ import numpy as np
 
 class Product(ABC):
     def __init__(self, name: str, prod_id: str):
-        """Initialise the product.
-
-        Parameters
-        ----------
-        name : str
-            The name of the product.
-        prod_id : str
-            The ID of the product.
-
-        """
         self.name = name
         self.id = prod_id
         # k: time
@@ -25,31 +15,18 @@ class Product(ABC):
 
     @abstractmethod
     def sample_price(self) -> Optional[float]:
-        """Sample the product price.
-
-        Returns
-        -------
-        Optional[float]
-            The sampled price.
-
-        """
+        """Sample the product price."""
         pass
 
     def most_recent_price(self) -> Optional[float]:
-        """Get the most recent sampled price.
-
-        Returns
-        -------
-        Optional[float]
-            The most recent sampled price.
-
-        """
+        """Get the most recent sampled price."""
         if len(self.price_history) > 0:
             return self.price_history[max(self.price_history)]
         else:
             return None
 
     def plot_price(self) -> None:
+        """Plot the price history of the product."""
         timestamps = np.fromiter(self.price_history.keys(), dtype="datetime64[s]")
         prices = np.fromiter(self.price_history.values(), dtype="float")
 
