@@ -1,10 +1,10 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-from product.abs_product import AbsProduct
+from product.product import Product
 
 
-def plot_price(prod: AbsProduct) -> None:
+def plot_price(prod: Product) -> None:
     """Plot product price history.
 
     Parameters

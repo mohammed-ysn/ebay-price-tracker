@@ -2,11 +2,11 @@ from datetime import datetime
 from typing import Optional
 from warnings import warn
 
-from product.abs_product import AbsProduct
-from scrapers.ebay_scraper import EBayScraper
+from product.product import Product
+from scraper.ebay_scraper import EBayScraper
 
 
-class EBayProduct(AbsProduct):
+class EBayProduct(Product):
     def sample_price(self) -> Optional[float]:
         """Sample the product price.
 

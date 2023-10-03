@@ -1,14 +1,14 @@
 from typing import Dict, List
 
-from product.abs_product import AbsProduct
+from product.product import Product
 
 
 class ProductCatalogue:
-    def __init__(self, *prods: AbsProduct):
+    def __init__(self, *prods: Product):
         """Initialise the product catalogue."""
         # k: product id
         # v: product obj
-        self.catalogue: Dict[str, AbsProduct] = {}
+        self.catalogue: Dict[str, Product] = {}
         for prod in prods:
             self.catalogue[prod.id] = prod
 
@@ -39,7 +39,7 @@ class ProductCatalogue:
         """
         self.catalogue.pop(prod_id)
 
-    def get_prod(self, prod_id: str) -> AbsProduct:
+    def get_prod(self, prod_id: str) -> Product:
         """Get a product from the catalogue.
 
         Parameters
@@ -55,7 +55,7 @@ class ProductCatalogue:
         """
         return self.catalogue[prod_id]
 
-    def get_all_prods(self) -> List[AbsProduct]:
+    def get_all_prods(self) -> List[Product]:
         """Get all of the products in the catalogue.
 
         Returns

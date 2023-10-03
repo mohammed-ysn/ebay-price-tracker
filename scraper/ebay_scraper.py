@@ -2,10 +2,10 @@ from typing import Optional
 import requests
 from bs4 import BeautifulSoup
 
-from scrapers.abs_scraper import AbsScraper
+from scraper.scraper import Scraper
 
 
-class EBayScraper(AbsScraper):
+class EBayScraper(Scraper):
     base_url = "https://www.ebay.co.uk/itm/"
 
     @staticmethod

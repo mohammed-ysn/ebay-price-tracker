@@ -3,7 +3,7 @@ from datetime import datetime
 from typing import Dict, Optional
 
 
-class AbsProduct(ABC):
+class Product(ABC):
     def __init__(self, name: str, prod_id: str):
         """Initialise the product.
 
