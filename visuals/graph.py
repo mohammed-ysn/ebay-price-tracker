@@ -13,32 +13,32 @@ def plot_price(prod: Product) -> None:
         The product to plot.
 
     """
-    # create a figure containing a single axes
+    timestamps = np.fromiter(prod.price_history.keys(), dtype="datetime64[s]")
+    prices = np.fromiter(prod.price_history.values(), dtype="float")
+
+    # Sort data by timestamps
+    sorted_indices = np.argsort(timestamps)
+    timestamps = timestamps[sorted_indices]
+    prices = prices[sorted_indices]
+
     fig, ax = plt.subplots()
 
-    # convert keys to datetime array in minutes
-    timestamps = np.fromiter(prod.price_history.keys(), dtype="datetime64[s]")
-    # convert prices to float array
-    prices = np.fromiter(prod.price_history.values(), dtype="float")
-    ordering = timestamps.argsort()
+    # Plot max and min prices if they are different
+    min_price = np.min(prices)
+    max_price = np.max(prices)
+    if min_price != max_price:
+        ax.axhline(y=min_price, color="green", linestyle="dashed", alpha=0.7)
+        ax.axhline(y=max_price, color="red", linestyle="dashed", alpha=0.7)
+        ax.text(timestamps[0], min_price, f"£{min_price:.2f}")
+        ax.text(timestamps[0], max_price, f"£{max_price:.2f}")
 
-    # plot max and min prices only if they are different
-    if len(prices) > 0:
-        min_price = np.min(prices)
-        max_price = np.max(prices)
-        if min_price != max_price:
-            # plot max and min horizontal lines
-            ax.axhline(y=min_price, color="green", linestyle="dashed", alpha=0.7)
-            ax.axhline(y=max_price, color="red", linestyle="dashed", alpha=0.7)
-            ax.text(timestamps[ordering[0]], min_price, f"£{min_price:.2f}")
-            ax.text(timestamps[ordering[0]], max_price, f"£{max_price:.2f}")
-
-    # plot price step graph
-    ax.step(timestamps[ordering], prices[ordering], where="post")
+    # Plot price step graph
+    ax.step(timestamps, prices, where="post")
 
     ax.set_xlabel("Time")
     ax.set_ylabel("Price")
 
+    # Use currency formatting for y-axis
     ax.yaxis.set_major_formatter("£{x:1.2f}")
 
     ax.grid(alpha=0.3)
@@ -46,6 +46,7 @@ def plot_price(prod: Product) -> None:
     fig.canvas.manager.set_window_title(f"{prod.name} Price History")
     fig.suptitle(f"{prod.name} Price History")
 
+    # Rotate x-axis labels for readability
     plt.xticks(rotation=17)
 
     plt.show()

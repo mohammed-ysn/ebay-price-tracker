@@ -19,5 +19,5 @@ def create_demo():
 
 if __name__ == "__main__":
     create_demo()
-    cat = file_manager.load("./data/demo_catalogue")
-    plot_price(cat.get_prod("012345"))
+    catalogue = file_manager.load("./data/demo_catalogue")
+    plot_price(catalogue.get("012345"))

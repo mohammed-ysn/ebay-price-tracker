@@ -17,7 +17,7 @@ class ProductCatalogue:
         for prod in self.catalogue.values():
             prod.sample_price()
 
-    def sample_prod(self, prod_id: str) -> None:
+    def sample_price(self, prod_id: str) -> None:
         """Sample the price of a product.
 
         Parameters
@@ -28,7 +28,7 @@ class ProductCatalogue:
         """
         self.catalogue[prod_id].sample_price()
 
-    def remove_prod(self, prod_id: str) -> None:
+    def remove(self, prod_id: str) -> None:
         """Remove a product from the catalogue.
 
         Parameters
@@ -39,7 +39,7 @@ class ProductCatalogue:
         """
         self.catalogue.pop(prod_id)
 
-    def get_prod(self, prod_id: str) -> Product:
+    def get(self, prod_id: str) -> Product:
         """Get a product from the catalogue.
 
         Parameters
