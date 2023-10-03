@@ -1,8 +1,8 @@
 from datetime import datetime
 
-from product import file_manager
+from utils import file_manager
 from product.ebay_product import EBayProduct
-from product.product_catalogue import ProductCatalogue
+from product.catalogue import ProductCatalogue
 from visuals.graph import plot_price
 
 

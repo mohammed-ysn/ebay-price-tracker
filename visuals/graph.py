@@ -3,8 +3,6 @@ import numpy as np
 
 from product.abs_product import AbsProduct
 
-plt.rcParams["font.family"] = "consolas"
-
 
 def plot_price(prod: AbsProduct) -> None:
     """Plot product price history.
